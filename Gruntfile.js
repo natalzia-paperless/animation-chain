@@ -3,9 +3,6 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    copy: {
-      dist: {expand: false, src: ['src/chain.js'], dest: 'public/animation-chain.js', filter: 'isFile'},
-    },
     clean: {
       public: ['public/']
     },
@@ -15,15 +12,9 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'public/animation-chain.min.js': ['public/animation-chain.js']
+          'public/animation-chain.js': ['animation-chain.js']
         }
       },
-    },
-    watch: {
-      scripts: {
-        files: ['src/**/*.js'],
-        tasks: ['copy'],
-      }
     },
     jshint: {
       options: {
@@ -52,7 +43,7 @@ module.exports = function(grunt) {
       },
       dev: {
         files: {
-          src: ['src/**/*.js']
+          src: ['animation-chain.js']
         },
         options: {
           debug: true,
@@ -61,7 +52,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          src: ['src/**/*.js']
+          src: ['animation-chain.js']
         }
       }
     }
@@ -70,12 +61,9 @@ module.exports = function(grunt) {
   // Load the plugins
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-
   // Default task(s).
-  grunt.registerTask('dist', ['clean', 'copy', 'uglify']);
+  grunt.registerTask('dist', ['clean', 'uglify']);
   grunt.registerTask('default', ['jshint', 'dist']);
   grunt.registerTask('lint', ['jshint']);
 };
