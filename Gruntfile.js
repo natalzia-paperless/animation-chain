@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      public: ["public/"]
+      public: ['public/']
     },
     uglify: {
       options: {
@@ -30,6 +30,46 @@ module.exports = function(grunt) {
         files: ['src/javascripts/**/*.js'],
         tasks: ['browserify'],
       }
+    },
+    jshint: {
+      options: {
+        indent: 2,
+        camelcase: true,
+        nonew: true,
+        quotmark: true,
+        bitwise: true,
+        forin: true,
+        curly: true,
+        eqeqeq: true,
+        immed: true,
+        latedef: true,
+        newcap: true,
+        noarg: true,
+        undef: true,
+        unused: true,
+        node: true,
+        browser: true,
+        browserify: true
+      },
+      gruntfile: {
+        files: {
+          src: ['Gruntfile.js']
+        }
+      },
+      dev: {
+        files: {
+          src: ['src/**/*.js']
+        },
+        options: {
+          debug: true,
+          devel: true
+        }
+      },
+      dist: {
+        files: {
+          src: ['src/**/*.js']
+        }
+      }
     }
   });
 
@@ -38,7 +78,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'browserify', 'uglify']);
+  grunt.registerTask('dist', ['clean', 'browserify', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'dist']);
+  grunt.registerTask('lint', ['jshint']);
 };

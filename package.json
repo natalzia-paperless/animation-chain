@@ -1,6 +1,19 @@
 {
   "name": "animation-chain",
   "version": "0.1.0",
+  "description": "",
+  "main": "src/animation-chain.js",
+  "scripts": {
+    "test": "grunt lint"
+  },
+  "keywords": [
+    "placeholder",
+    "input",
+    "react",
+    "react-component"
+  ],
+  "contributors": ["Joe Natalzia"],
+  "license": "MIT",
   "devDependencies": {
     "6to5ify": "^4.1.0",
     "browserify": "^8.1.3",

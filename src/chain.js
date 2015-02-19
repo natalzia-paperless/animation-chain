@@ -8,8 +8,6 @@ var requestAnimFrame = (function(){
 })();
 
 var chain = function(callback, time) {
-  if (typeof delay === "undefined") delay = 0;
-
   this.init = function() {
     this.ticks = [
       {
@@ -18,7 +16,7 @@ var chain = function(callback, time) {
       }
     ];
     requestAnimFrame(this.tick);
-  }
+  };
 
   this.tick = function(timestep) {
     for (var i = 0; i < this.ticks.length; i++) {
@@ -26,13 +24,14 @@ var chain = function(callback, time) {
       if (timestep >= currentTick.time) {
         currentTick.cb();
         this.ticks.splice(0,1);
-        if (this.ticks.length === 0)
+        if (this.ticks.length === 0) {
           return;
+        }
       }
     }
 
     requestAnimFrame(this.tick);
-  }
+  };
 
   this.chainTo = function(cb, newTime) {
     var lastTick = this.ticks[this.ticks.length-1];
@@ -40,10 +39,10 @@ var chain = function(callback, time) {
       cb: cb,
       time: newTime + lastTick.time
     });
-  }
+  };
 
   this.init();
   return this;
-}
+};
 
 module.exports = chain;
