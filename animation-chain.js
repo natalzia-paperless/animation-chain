@@ -7,6 +7,29 @@ var requestAnimFrame = (function(){
           };
 })();
 
+/** From http://stackoverflow.com/questions/5023514/how-do-i-normalize-css3-transition-functions-across-browsers */
+function transitionEndEventName () {
+    var i,
+        el = document.createElement('div'),
+        transitions = {
+            'transition':'transitionend',
+            'OTransition':'otransitionend',  // oTransitionEnd in very old Opera
+            'MozTransition':'transitionend',
+            'WebkitTransition':'webkitTransitionEnd'
+        };
+
+    for (i in transitions) {
+        if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
+            return transitions[i];
+        }
+    }
+
+    //TODO: throw 'TransitionEnd event is not supported in this browser';
+    return null;
+}
+
+var transitionEnd = transitionEndEventName();
+
 var Chain = function(callback, time) {
   var obj = {
     ticks: [],
