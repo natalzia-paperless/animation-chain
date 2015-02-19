@@ -21,8 +21,8 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ['src/javascripts/**/*.js'],
-        tasks: ['browserify'],
+        files: ['src/**/*.js'],
+        tasks: ['copy'],
       }
     },
     jshint: {

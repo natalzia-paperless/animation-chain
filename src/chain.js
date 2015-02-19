@@ -19,9 +19,13 @@ var Chain = function(callback, time) {
   };
 
   this.tick = function(timestep) {
+    if (!this.startTime) {
+      this.startTime = timestep;
+    }
+
     for (var i = 0; i < this.ticks.length; i++) {
       var currentTick = this.ticks[i];
-      if (timestep >= currentTick.time) {
+      if ((timestep - this.startTime) >= currentTick.time) {
         currentTick.cb();
         this.ticks.splice(0,1);
         if (this.ticks.length === 0) {
