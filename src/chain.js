@@ -7,7 +7,7 @@ var requestAnimFrame = (function(){
           };
 })();
 
-var chain = function(callback, time) {
+var Chain = function(callback, time) {
   this.init = function() {
     this.ticks = [
       {
@@ -45,4 +45,4 @@ var chain = function(callback, time) {
   return this;
 };
 
-module.exports = chain;
+module.exports = Chain;

@@ -3,14 +3,8 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    browserify: {
-      main: {
-        src: ['src/umd.js'],
-        dest: 'public/animation-chain.js',
-        options: {
-          transform: ['6to5ify']
-        }
-      }
+    copy: {
+      dist: {expand: false, src: ['src/chain.js'], dest: 'public/animation-chain.js', filter: 'isFile'},
     },
     clean: {
       public: ['public/']
@@ -77,11 +71,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('dist', ['clean', 'browserify', 'uglify']);
+  grunt.registerTask('dist', ['clean', 'copy', 'uglify']);
   grunt.registerTask('default', ['jshint', 'dist']);
   grunt.registerTask('lint', ['jshint']);
 };
