@@ -2,7 +2,7 @@
   "name": "animation-chain",
   "version": "0.1.0",
   "description": "",
-  "main": "src/animation-chain.js",
+  "main": "public/animation-chain.min.js",
   "scripts": {
     "test": "grunt lint"
   },
