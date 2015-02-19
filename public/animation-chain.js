@@ -8,45 +8,47 @@ var requestAnimFrame = (function(){
 })();
 
 var Chain = function(callback, time) {
-  this.init = function() {
-    this.ticks = [
-      {
-        cb: callback,
-        time: time
+  var obj = {
+    ticks: [],
+    init: function(cb, t) {
+      obj.ticks = [
+        {
+          cb: cb,
+          time: t
+        }
+      ];
+      requestAnimFrame(obj.tick);
+    },
+    tick: function(timestep) {
+      if (!obj.startTime) {
+        obj.startTime = timestep;
       }
-    ];
-    requestAnimFrame(this.tick);
-  };
 
-  this.tick = function(timestep) {
-    if (!this.startTime) {
-      this.startTime = timestep;
-    }
-
-    for (var i = 0; i < this.ticks.length; i++) {
-      var currentTick = this.ticks[i];
-      if ((timestep - this.startTime) >= currentTick.time) {
-        currentTick.cb();
-        this.ticks.splice(0,1);
-        if (this.ticks.length === 0) {
-          return;
+      for (var i = 0; i < obj.ticks.length; i++) {
+        var currentTick = obj.ticks[i];
+        if ((timestep - obj.startTime) >= currentTick.time) {
+          currentTick.cb();
+          obj.ticks.splice(0,1);
+          if (obj.ticks.length === 0) {
+            return;
+          }
         }
       }
+
+      requestAnimFrame(obj.tick);
+    },
+    chainTo: function(cb, newTime) {
+      var lastTick = obj.ticks[obj.ticks.length-1];
+      obj.ticks.push({
+        cb: cb,
+        time: newTime + lastTick.time
+      });
     }
-
-    requestAnimFrame(this.tick);
   };
 
-  this.chainTo = function(cb, newTime) {
-    var lastTick = this.ticks[this.ticks.length-1];
-    this.ticks.push({
-      cb: cb,
-      time: newTime + lastTick.time
-    });
-  };
+  obj.init(callback, time);
 
-  this.init();
-  return this;
+  return obj;
 };
 
 module.exports = Chain;
