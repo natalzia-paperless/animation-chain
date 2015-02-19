@@ -6,12 +6,19 @@
   "scripts": {
     "test": "grunt lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jnatalzia/animation-chain.git"
+  },
   "keywords": [
-    "placeholder",
-    "input",
-    "react",
-    "react-component"
+    "animation",
+    "animation-frame",
+    "css-animation",
+    "setTimeout"
   ],
+  "bugs": {
+    "url": "https://github.com/jnatalzia/animation-chain/issues"
+  },
   "contributors": ["Joe Natalzia"],
   "license": "MIT",
   "devDependencies": {
