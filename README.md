@@ -68,6 +68,8 @@ chain(chainObject);
 
 `time`: If using a timeout, the time to be used
 
+`singleListener`: Defaults to `true`. Whether to only allow one event listener on a given element at a time. This can be useful when working with animations that can be stopped partway through so the event listener doesn't fire at the wrong end of the animation
+
 ### Fallbacks ###
 If you're planning on utilizing timing events but want to support browsers that don't support those events, simply pass a `time` into your object with the correct amount of time the animation. The plugin will detect that those events are supported and default to the timeout
 
