@@ -51,7 +51,7 @@ You can also tap into the transition and animation events like so
 
 ```
 var chainObject = {
-  selector: 'animating-el',
+  selector: '.animating-el',
   callback: function() {
     console.log('animation-ended')
   },
