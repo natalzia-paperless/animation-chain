@@ -75,4 +75,4 @@ If you're planning on utilizing timing events but want to support browsers that 
 * `lint` - Check your code
 
 ## Coming soon ##
-Support for `transitionEnd` events
+~~Support for `transitionEnd` events~~
