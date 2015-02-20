@@ -68,6 +68,9 @@ chain(chainObject);
 
 `time`: If using a timeout, the time to be used
 
+### Fallbacks ###
+If you're planning on utilizing timing events but want to support browsers that don't support those events, simply pass a `time` into your object with the correct amount of time the animation. The plugin will detect that those events are supported and default to the timeout
+
 ## Useful grunt tasks ##
 * `lint` - Check your code
 
