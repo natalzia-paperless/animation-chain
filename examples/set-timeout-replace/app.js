@@ -10,17 +10,9 @@ document.querySelector('button').onclick = function() {
     valueObject[sel] = document.querySelector("."+sel).value;
   }
 
-  var obj1 = {
-    callback: function() {
-      console.log(valueObject.val1);
-    },
-    time: valueObject.num1
-  }, obj2 = {
-    callback: function() {
-      console.log(valueObject.val2);
-    },
-    time: valueObject.num2
-  }
-
-  chain(obj1).chainTo(obj2);
+  chain(function(){
+    console.log(valueObject.val1);
+  }, valueObject.num1).chainTo(function(){
+    console.log(valueObject.val2);
+  }, valueObject.num2);
 }
