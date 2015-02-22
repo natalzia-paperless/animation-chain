@@ -28,21 +28,11 @@ setTimeout(function() {
 }, 500);
 ```
 ```
-var obj1 = {
-  callback: function() {
-    el.classList.toggle("animation1");
-  },
-  time: 500
-};
-
-var obj2 = {
-  callback: function() {
-    el.classList.toggle("animation2");
-  },
-  time: 500
-}
-
-chain(obj1).chainTo(obj2);
+chain(function() {
+  el.classList.toggle("animation1");
+}, 500).chainTo(function() {
+  el.classList.toggle("animation2");
+}, 500);
 ```
 
 All while being more performant based on animation frame usage
