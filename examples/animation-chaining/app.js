@@ -3,6 +3,10 @@ var chain = require('animation-chain');
 document.querySelector('button').onclick = function() {
   var animatingDiv = document.querySelector('.animating-div');
 
+  if (animatingDiv.classList.contains('is-animating')) {
+    return;
+  }
+
   var chainingObject = [
     {
       callback: function() {
