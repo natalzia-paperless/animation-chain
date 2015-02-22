@@ -14,7 +14,7 @@ Animation Chain is a chaining library which utilizes the browser's `requestAnima
 setTimeout(function(){console.log('old')}, 500);
 ```
 ```
-chain({callback: function(){console.log('new')}, time: 500});
+chain(function(){console.log('old')}, 500);
 ```
 
 Here's a use case for a slightly longer timeout (useful in chaining animations through adding classes)
