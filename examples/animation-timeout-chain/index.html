@@ -1,0 +1,37 @@
+<!doctype HTML>
+<html>
+<head>
+  <title>Animation and Timeout Chain!</title>
+  <style>
+    .animation-container {
+      padding: 50px;
+    }
+    .animating-div {
+      background-color: #4C5FD9;
+      height: 100px;
+      left: 0;
+      position: relative;
+      width: 100px;
+    }
+    .animating-div.is-animating {
+      left: 100px;
+      -webkit-transition: left 1s ease;
+	    transition: left 1s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chain together animation callbacks and timeouts</h1>
+
+  <div>Pro-tip: open your console?</div>
+  <div>Timeout length: <input class='num1' type="number" min="250" max="4000" step="250" value="500" /></div>
+  <div>The animating div will not reset until the timeout completes!</div>
+
+  <div class='animation-container'>
+    <div class="animating-div"></div>
+  </div>
+
+  <button>Log it!</button>
+  <script src="/__build__/animation-timeout-chain.js"></script>
+</body>
+</html>

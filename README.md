@@ -79,5 +79,7 @@ If you're planning on utilizing timing events but want to support browsers that 
 ## Examples ##
 Run `npm run examples` to start a server and view the different examples
 
+This starts a server running at `localhost:8080/`
+
 ## Coming soon ##
 ~~Support for `transitionEnd` events~~

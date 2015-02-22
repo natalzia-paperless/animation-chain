@@ -1,0 +1,123 @@
+.animation-container {
+  padding: 50px;
+}
+.animating-div {
+  background-color: #4C5FD9;
+  height: 100px;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 100px;
+}
+.animating-div.is-animating {
+  left: 100px;
+  -webkit-transition: left 1s ease;
+  transition: left 1s ease;
+}
+.animating-div.custom-animation {
+  opacity: 0;
+  top: 100px;
+  -webkit-animation: custom-animation 1s;
+  -moz-animation:    custom-animation 1s;
+  -o-animation:      custom-animation 1s;
+  animation:         custom-animation 1s;
+}
+.animating-div.returning-animation {
+  left: 0;
+  opacity: 1;
+  top: 0;
+  -webkit-animation: return-animation .5s;
+  -moz-animation:    return-animation .5s;
+  -o-animation:      return-animation .5s;
+  animation:         return-animation .5s;
+}
+
+@-webkit-keyframes custom-animation {
+  0%   {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: 100px;
+  }
+}
+@-moz-keyframes custom-animation {
+  0%   {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: 100px;
+  }
+}
+@-o-keyframes custom-animation {
+  0%   {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: 100px;
+  }
+}
+@keyframes custom-animation {
+  0%   {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: 100px;
+  }
+}
+
+@-webkit-keyframes return-animation {
+  0%   {
+    left: 100px;
+    opacity: 0;
+    top: 100px;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+    top: 0;
+  }
+}
+@-moz-keyframes return-animation {
+  0%   {
+    left: 100px;
+    opacity: 0;
+    top: 100px;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+    top: 0;
+  }
+}
+@-o-keyframes return-animation {
+  0%   {
+    left: 100px;
+    opacity: 0;
+    top: 100px;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+    top: 0;
+  }
+}
+@keyframes return-animation {
+  0%   {
+    left: 100px;
+    opacity: 0;
+    top: 100px;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+    top: 0;
+  }
+}
