@@ -43,7 +43,7 @@ module.exports = function(grunt) {
       },
       dev: {
         files: {
-          src: ['animation-chain.js']
+          src: ['index.js', 'lib/**/*.js']
         },
         options: {
           debug: true,
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          src: ['animation-chain.js']
+          src: ['index.js', 'lib/**/*.js']
         }
       }
     }
