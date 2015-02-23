@@ -1,11 +1,12 @@
 # Animation Chain
 
-Animation Chain is a chaining library which utilizes the browser's `requestAnimationFrame` function in place of the usual `setTimeout`. This results in a much more accurate representation of time passed based on a delta time calculation. This can be useful in timing class additions and removals based on CSS transition timings.
+Animation Chain is a chaining library which utilizes the browser's `requestAnimationFrame` and `transitionEnd` events in place of `setTimeout`. This results in a much more accurate representation of time passed and animation completion. This can be useful in timing class additions and removals based on CSS transition timings.
 
 ## Set Up ##
 * Clone the repo
 * Run `npm install` to install dependancies
 * Run grunt to build the files into the `public/` dir
+* Changes will also automatically be applied to the examples/ folder so testing can be done there
 
 ## Usage ##
 `animation-chain` is invoked the same way that setTimeout is, with the `chainTo` function being added to easily integrate successive function calls. Like promises for certain amounts of time or events
@@ -73,3 +74,4 @@ This starts a server running at `localhost:8080/`
 
 ## Coming soon ##
 ~~Support for `transitionEnd` events~~
+~~setTimeout syntax~~
