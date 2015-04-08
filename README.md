@@ -5,7 +5,7 @@ Animation Chain is a chaining library which utilizes the browser's `requestAnima
 ## Set Up ##
 * Clone the repo
 * Run `npm install` to install dependancies
-* Run grunt to build the files into the `public/` dir
+* Run grunt to build the files into the `build/` dir
 * Changes will also automatically be applied to the examples/ folder so testing can be done there
 
 ## Usage ##
