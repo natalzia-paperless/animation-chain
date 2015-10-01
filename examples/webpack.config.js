@@ -18,7 +18,7 @@ module.exports = {
    }, {}),
 
    output: {
-     path: 'examples/__build__',
+     path: '/examples/__build__',
      filename: '[name].js',
      chunkFilename: '[id].chunk.js',
      publicPath: '/__build__/'
