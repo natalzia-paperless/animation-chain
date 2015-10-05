@@ -5,7 +5,7 @@
   "main": "animation-chain.js",
   "scripts": {
     "test": "grunt lint",
-    "examples": "webpack-dev-server --config examples/webpack.config.js --no-info --content-base examples"
+    "examples": "webpack-dev-server --config examples/webpack.config.js --no-info --content-base examples --port 9001 --display-error-details"
   },
   "repository": {
     "type": "git",
