@@ -65,12 +65,14 @@ chain(chainObject);
 If you're planning on utilizing timing events but want to support browsers that don't support those events, simply pass a `time` into your object with the correct amount of time the animation. The plugin will detect that those events are supported and default to the timeout
 
 ## Useful grunt tasks ##
-* `lint` - Check your code
+* `grunt` - Default task - compliles all code and starts to `watch` the repo for changes
+* `grunt lint` - Check your code
+* `grunt dist` - Compiles all code - doesn't watch for changes
 
 ## Examples ##
 Run `npm run examples` to start a server and view the different examples
 
-This starts a server running at `localhost:8080/`
+This starts a server running at `localhost:9001/`
 
 ## Coming soon ##
 * ~~Support for `transitionEnd` events~~
