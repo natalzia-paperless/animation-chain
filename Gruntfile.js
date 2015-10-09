@@ -4,17 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     clean: {
-      public: ['public/']
-    },
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> - v <%= pkg.version %> - <%= pkg.author %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
-      dist: {
-        files: {
-          'public/animation-chain.js': ['public/animation-chain.js']
-        }
-      },
+      public: ['build/']
     },
     browserify: {
       dist: {
@@ -41,7 +31,8 @@ module.exports = function(grunt) {
         unused: true,
         node: true,
         browser: true,
-        browserify: true
+        browserify: true,
+        esnext: true
       },
       gruntfile: {
         files: {
@@ -62,7 +53,31 @@ module.exports = function(grunt) {
           src: ['index.js', 'lib/**/*.js']
         }
       }
-    }
+    },
+    babel: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: 'lib/',
+            src: ['*.js'],
+            dest: 'build/'
+          }
+        ]
+      }
+    },
+    watch: {
+      scripts: {
+        files: ['lib/**/*.js'],
+        tasks: ['build'],
+        options: {
+          spawn: false,
+        },
+      },
+    },
   });
 
   // Load the plugins
@@ -70,8 +85,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-babel');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   // Default task(s).
-  grunt.registerTask('dist', ['clean', 'browserify', 'uglify']);
-  grunt.registerTask('default', ['jshint', 'dist']);
+  grunt.registerTask('build', ['babel']);
+  grunt.registerTask('dist', ['clean', 'build']);
+  grunt.registerTask('default', ['jshint', 'dist', 'watch']);
   grunt.registerTask('lint', ['jshint']);
 };
