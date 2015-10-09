@@ -4,17 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     clean: {
-      public: ['public/']
-    },
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> - v <%= pkg.version %> - <%= pkg.author %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
-      dist: {
-        files: {
-          'public/animation-chain.js': ['public/animation-chain.js']
-        }
-      },
+      public: ['build/']
     },
     browserify: {
       dist: {
@@ -99,7 +89,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   // Default task(s).
   grunt.registerTask('build', ['babel']);
-  grunt.registerTask('dist', ['clean', 'uglify']);
+  grunt.registerTask('dist', ['clean', 'build']);
   grunt.registerTask('default', ['jshint', 'dist', 'watch']);
   grunt.registerTask('lint', ['jshint']);
 };
