@@ -41,7 +41,8 @@ module.exports = function(grunt) {
         unused: true,
         node: true,
         browser: true,
-        browserify: true
+        browserify: true,
+        esnext: true
       },
       gruntfile: {
         files: {
