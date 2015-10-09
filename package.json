@@ -5,7 +5,8 @@
   "main": "animation-chain.js",
   "scripts": {
     "test": "grunt lint",
-    "examples": "webpack-dev-server --config examples/webpack.config.js --no-info --content-base examples --port 9001 --display-error-details"
+    "examples": "webpack-dev-server --config examples/webpack.config.js --no-info --content-base examples --port 9001 --display-error-details",
+    "build": "browserify lib/animation-chain.js -o index.js"
   },
   "repository": {
     "type": "git",
